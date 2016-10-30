@@ -1,0 +1,13 @@
+#Test.
+#<IfModule mod_rewrite.c>
+#    RewriteEngine On
+#    RewriteRule ^.*$ htaccess_tester.php
+#</IfModule>
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    # _api
+    RewriteCond %{REQUEST_URI} ^/api$
+    RewriteRule ^ web/app_dev.php [QSA,L]
+
+    RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>
