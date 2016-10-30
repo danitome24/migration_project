@@ -9,13 +9,13 @@
     #_wdt
     RewriteCond %{REQUEST_URI} ^/_wdt$
     RewriteRule ^ $0/ [QSA,L,R=301]
-    RewriteCond %{REQUEST_URI} ^/_wdt/$
+    RewriteCond %{REQUEST_URI} ^/_wdt/(.+)$
     RewriteRule ^ web/app_dev.php [QSA,L]
 
     # _profiler_home
     RewriteCond %{REQUEST_URI} ^/_profiler$
     RewriteRule ^ $0/ [QSA,L,R=301]
-    RewriteCond %{REQUEST_URI} ^/_profiler/$
+    RewriteCond %{REQUEST_URI} ^/_profiler/(.+)$
     RewriteRule ^ web/app_dev.php [QSA,L]
 
     # _api
