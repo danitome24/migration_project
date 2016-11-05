@@ -44,3 +44,4 @@ vendor/
 
 # Composer PHAR
 /composer.lock
+src/AppBundle/Command/

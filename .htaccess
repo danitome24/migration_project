@@ -1,33 +1,16 @@
-#Test.
-#<IfModule mod_rewrite.c>
-#    RewriteEngine On
-#    RewriteRule ^.*$ htaccess_tester.php
-#</IfModule>
 <IfModule mod_rewrite.c>
-    RewriteEngine On
+RewriteEngine On
 
-    #_wdt
-    RewriteCond %{REQUEST_URI} ^/_wdt$
-    RewriteRule ^ $0/ [QSA,L,R=301]
-    RewriteCond %{REQUEST_URI} ^/_wdt/(.+)$
-    RewriteRule ^ symfony/web/app_dev.php [QSA,L]
+# homepage
+RewriteCond %{REQUEST_URI} ^/api$
+RewriteRule .* symfony/web/app.php [QSA,L]
 
-    # _profiler_home
-    RewriteCond %{REQUEST_URI} ^/_profiler$
-    RewriteRule ^ $0/ [QSA,L,R=301]
-    RewriteCond %{REQUEST_URI} ^/_profiler/(.+)$
-    RewriteRule ^ symfony/web/app_dev.php [QSA,L]
+# app_lucky_number
+RewriteCond %{REQUEST_URI} ^/api/number$
+RewriteRule .* symfony/web/app.php [QSA,L]
 
-    # _api
-    RewriteCond %{REQUEST_URI} ^/api$
-    RewriteRule ^ symfony/web/app_dev.php [QSA,L]
-
-    # _api_number
-    RewriteCond %{REQUEST_URI} ^/api/number$
-    RewriteRule ^ symfony/web/app_dev.php [QSA,L]
-
-    # Here some of your custom rewrites...
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ page.php [QSA,L]
+# Here some of your custom rewrites...
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ page.php [QSA,L]
 
 </IfModule>
